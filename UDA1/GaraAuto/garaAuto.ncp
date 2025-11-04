@@ -1,0 +1,69 @@
+<Project>
+  <Name>garaAuto</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Untitled</Name>
+    <Language>Java</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Auto</Name>
+        <Access>Public</Access>
+        <Location left="335" top="172" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String colore</Member>
+        <Member type="Field">private int id</Member>
+        <Member type="Field">private double velMax</Member>
+        <Member type="Field">private int litriBenzina</Member>
+        <Member type="Constructor">public Auto(String colore, int id, double velMax, int litriBenzina)</Member>
+        <Member type="Method">public void run()</Member>
+        <Member type="Method">private int step()</Member>
+        <Member type="Method">public void encrypt()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GestioneGioco</Name>
+        <Access>Public</Access>
+        <Location left="686" top="203" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Auto[] auto</Member>
+        <Member type="Field">private double lunghezzaPista</Member>
+        <Member type="Method">public boolean checkWin()</Member>
+        <Member type="Method">private void printClassifica()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Interface">
+        <Name>Runnable</Name>
+        <Access>Public</Access>
+        <Location left="335" top="534" />
+        <Size width="162" height="115" />
+        <Collapsed>False</Collapsed>
+      </Entity>
+      <Entity type="Class">
+        <Name>Thread</Name>
+        <Access>Public</Access>
+        <Location left="629" top="534" />
+        <Size width="162" height="115" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Main</Name>
+        <Access>Public</Access>
+        <Location left="921" top="399" />
+        <Size width="186" height="109" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public static void Main(String[] args)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Dependency" first="0" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
