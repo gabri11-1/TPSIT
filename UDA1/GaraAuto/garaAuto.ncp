@@ -7,7 +7,7 @@
       <Entity type="Class">
         <Name>Auto</Name>
         <Access>Public</Access>
-        <Location left="335" top="172" />
+        <Location left="386" top="315" />
         <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private String colore</Member>
@@ -20,49 +20,99 @@
         <Member type="Method">public void encrypt()</Member>
         <Modifier>None</Modifier>
       </Entity>
-      <Entity type="Class">
-        <Name>GestioneGioco</Name>
-        <Access>Public</Access>
-        <Location left="686" top="203" />
-        <Size width="162" height="216" />
-        <Collapsed>False</Collapsed>
-        <Member type="Field">private Auto[] auto</Member>
-        <Member type="Field">private double lunghezzaPista</Member>
-        <Member type="Method">public boolean checkWin()</Member>
-        <Member type="Method">private void printClassifica()</Member>
-        <Modifier>None</Modifier>
-      </Entity>
       <Entity type="Interface">
         <Name>Runnable</Name>
         <Access>Public</Access>
-        <Location left="335" top="534" />
+        <Location left="33" top="611" />
         <Size width="162" height="115" />
         <Collapsed>False</Collapsed>
       </Entity>
       <Entity type="Class">
         <Name>Thread</Name>
         <Access>Public</Access>
-        <Location left="629" top="534" />
+        <Location left="655" top="641" />
         <Size width="162" height="115" />
         <Collapsed>False</Collapsed>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
-        <Name>Main</Name>
+        <Name>Giudice</Name>
         <Access>Public</Access>
-        <Location left="921" top="399" />
-        <Size width="186" height="109" />
+        <Location left="86" top="172" />
+        <Size width="162" height="216" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">private void printClassifica()</Member>
+        <Member type="Method">public boolean checkWin()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GestioneGioco</Name>
+        <Access>Public</Access>
+        <Location left="672" top="172" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Auto[] auto</Member>
+        <Member type="Field">private double lunghezzaPista</Member>
         <Member type="Method">public static void Main(String[] args)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
+      <Relationship type="Dependency" first="0" second="1">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>361</X>
+          <Y>472</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="4" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>637</X>
+          <Y>377</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Dependency" first="3" second="0">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>273</X>
+          <Y>377</Y>
+        </BendPoint>
+      </Relationship>
       <Relationship type="Dependency" first="0" second="2">
         <Label>
         </Label>
-        <StartOrientation>Vertical</StartOrientation>
+        <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>573</X>
+          <Y>482</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>675</X>
+          <Y>616</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Dependency" first="4" second="3">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>275</X>
+          <Y>213</Y>
+        </BendPoint>
       </Relationship>
     </Relationships>
   </ProjectItem>
