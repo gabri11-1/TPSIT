@@ -1,0 +1,5 @@
+1° posto: Auto 4
+2° posto: Auto 1
+3° posto: Auto 3
+4° posto: Auto 5
+5° posto: Auto 2
