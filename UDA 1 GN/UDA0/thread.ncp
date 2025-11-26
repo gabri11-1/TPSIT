@@ -1,0 +1,117 @@
+<Project>
+  <Name>thread</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Untitled</Name>
+    <Language>Java</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Thread</Name>
+        <Access>Public</Access>
+        <Location left="352" top="220" />
+        <Size width="162" height="230" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">public int max_priority</Member>
+        <Member type="Field">public int min_priority</Member>
+        <Member type="Field">public int norm_priority</Member>
+        <Member type="Constructor">public Thread()</Member>
+        <Member type="Constructor">public Thread(Runnable target)</Member>
+        <Member type="Constructor">public Thread(String nome)</Member>
+        <Member type="Method">public static Thread currentThread()</Member>
+        <Member type="Method">public static void yield()</Member>
+        <Member type="Method">public static void sleep(long millis)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Object</Name>
+        <Access>Public</Access>
+        <Location left="736" top="220" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void nocify()</Member>
+        <Member type="Method">public void notifyAll()</Member>
+        <Member type="Method">public void wait()</Member>
+        <Member type="Method">public void toString()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Giocatore</Name>
+        <Access>Public</Access>
+        <Location left="352" top="543" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private String nome</Member>
+        <Member type="Field">private int punteggio</Member>
+        <Member type="Constructor">public Giocatore(String nome)</Member>
+        <Member type="Method">private void gioca()</Member>
+        <Member type="Method">private void comunica()</Member>
+        <Member type="Method">public void run()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Gioco</Name>
+        <Access>Public</Access>
+        <Location left="115" top="560" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void main(String[] args)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Comment">
+        <Text>classe di avvio che al suo interno ha il metodo main </Text>
+        <Location left="629" top="765" />
+        <Size width="160" height="75" />
+      </Entity>
+      <Entity type="Class">
+        <Name>Runnable</Name>
+        <Access>Public</Access>
+        <Location left="725" top="492" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Member type="Method">public void run()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>GameManager</Name>
+        <Access>Public</Access>
+        <Location left="113" top="285" />
+        <Size width="162" height="216" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Generalization" first="0" second="1">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="2">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>302</X>
+          <Y>646</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>316</X>
+          <Y>646</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Generalization" first="2" second="0">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="6" second="2">
+        <Label>
+        </Label>
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>322</X>
+          <Y>574</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
