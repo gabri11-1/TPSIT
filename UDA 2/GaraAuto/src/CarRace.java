@@ -1,12 +1,9 @@
 /**
- * <p>
- * Crea un oggetto {@link GameManager} che gestisce la competizione tra un certo numero di auto
- * su un percorso di lunghezza specificata
- * </p>
- *
+ * Classe principale che avvia la gara.
  */
 public class CarRace {
     public static void main(String[] args) {
+        // Crea il GameManager: percorso lungo 20, 5 auto
         new GameManager(20, 5);
     }
 }
