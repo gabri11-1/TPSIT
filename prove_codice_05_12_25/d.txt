@@ -1,0 +1,115 @@
+1. **Eccezioni controllate e non controllate**
+
+In Java, le eccezioni possono essere suddivise in due categorie principali: **controllate** e **non controllate**.
+
+* **Eccezioni controllate** (Checked Exceptions):
+  Le eccezioni controllate sono quelle che il compilatore si aspetta che vengano gestite dal programmatore. Se una funzione può generare un'eccezione controllata, il codice che chiama tale funzione deve gestirla esplicitamente con un blocco `try-catch` o dichiarare che la lancia con `throws`. Queste eccezioni derivano dalla classe `Exception` ma non da `RuntimeException`.
+
+  Esempio:
+
+  ```java
+  public void leggiFile(String percorso) throws IOException {
+      // codice che può generare un'eccezione controllata
+  }
+  ```
+
+  Il chiamante deve gestire questa eccezione:
+
+  ```java
+  try {
+      leggiFile("file.txt");
+  } catch (IOException e) {
+      // Gestione dell'eccezione
+  }
+  ```
+
+* **Eccezioni non controllate** (Unchecked Exceptions):
+  Le eccezioni non controllate sono quelle che derivano dalla classe `RuntimeException`. Queste eccezioni non sono obbligatorie da gestire né dichiarare esplicitamente nel codice, ma è buona pratica farlo. Si verificano solitamente in caso di errori di programmazione (ad esempio, un `NullPointerException` o un `ArrayIndexOutOfBoundsException`).
+
+  Esempio:
+
+  ```java
+  public void dividi(int a, int b) {
+      int result = a / b;  // Potenziale ArithmeticException se b è 0
+  }
+  ```
+
+  In questo caso, non è necessario dichiarare o gestire esplicitamente l'eccezione, ma può essere gestita comunque con un blocco `try-catch`:
+
+  ```java
+  try {
+      dividi(10, 0);
+  } catch (ArithmeticException e) {
+      // Gestione dell'eccezione
+  }
+  ```
+
+### 2. **`throw` e `throws`**
+
+* **`throw`**:
+  È usato per lanciare un'eccezione all'interno di un metodo o blocco di codice. Può essere usato sia con eccezioni controllate che non controllate.
+  Esempio:
+
+  ```java
+  public void verificaNumero(int numero) {
+      if (numero < 0) {
+          throw new IllegalArgumentException("Numero non valido");
+      }
+  }
+  ```
+
+* **`throws`**:
+  È una dichiarazione che indica che un metodo potrebbe lanciare una o più eccezioni controllate, e spetta al chiamante del metodo gestirle o dichiararle a sua volta. Si usa nella firma del metodo.
+  Esempio:
+
+  ```java
+  public void leggiFile(String percorso) throws IOException {
+      // codice che può generare un'eccezione controllata
+  }
+  ```
+
+### 3. **`try-catch-finally`**
+
+* **`try-catch-finally`**:
+  Il blocco `try-catch-finally` è utilizzato per gestire le eccezioni. Il codice che potrebbe generare un'eccezione viene messo nel blocco `try`, le eccezioni vengono catturate nei blocchi `catch`, e il blocco `finally` viene eseguito sempre, indipendentemente dal fatto che si sia verificata o meno un'eccezione.
+
+  Esempio:
+
+  ```java
+  try {
+      int result = 10 / 0; // Potenziale ArithmeticException
+  } catch (ArithmeticException e) {
+      System.out.println("Errore di divisione per zero");
+  } finally {
+      System.out.println("Operazione completata, indipendentemente dall'esito");
+  }
+  ```
+
+  Il blocco `finally` è spesso utilizzato per liberare risorse, come chiudere file o connessioni a database, che devono sempre essere liberate, indipendentemente dal fatto che ci sia stata un'eccezione.
+
+### 4. **`try-with-resources` (Try con risorse)**
+
+* **`try-with-resources`** è una sintassi introdotta in Java 7 per semplificare la gestione delle risorse che devono essere chiuse, come file, socket, connessioni database, ecc. La risorsa deve implementare l'interfaccia `AutoCloseable`. Con questo costrutto, le risorse vengono automaticamente chiuse alla fine del blocco `try`, senza bisogno di un blocco `finally`.
+
+  Esempio:
+
+  ```java
+  try (BufferedReader reader = new BufferedReader(new FileReader("file.txt"))) {
+      String line = reader.readLine();
+      System.out.println(line);
+  } catch (IOException e) {
+      System.out.println("Errore durante la lettura del file");
+  }
+  // Il reader verrà automaticamente chiuso
+  ```
+
+  In questo esempio, `BufferedReader` è una risorsa che viene chiusa automaticamente quando esce dal blocco `try`, senza bisogno di un `finally`.
+
+### Riepilogo delle differenze principali:
+
+* **Eccezioni controllate**: Devono essere gestite esplicitamente dal programmatore tramite `try-catch` o dichiarate con `throws`.
+* **Eccezioni non controllate**: Non devono essere gestite né dichiarate, anche se possono essere trattate con `try-catch`.
+* **`throw`**: Utilizzato per lanciare un'eccezione.
+* **`throws`**: Utilizzato per dichiarare che un metodo potrebbe lanciare una o più eccezioni controllate.
+* **`try-catch-finally`**: Struttura di gestione delle eccezioni che permette di catturare e gestire gli errori, e garantire che il codice nel blocco `finally` venga eseguito.
+* **`try-with-resources`**: Sintassi per la gestione automatica delle risorse (come file e connessioni), che vengono chiuse automaticamente quando il blocco `try` finisce.
