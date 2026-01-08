@@ -1,0 +1,11 @@
+https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.17.0/ 
+ per scaricare jackson-databind che mi serve per usare jackson che è un po strano da scaricare perche è un porgetto java semplice ma tuttavia è il piu comodo da usare per gestire i file json 
+
+https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.17.0/ 
+per scaricare jackson-core
+
+https://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.17.0/
+
+per scaricare jackson-annotations
+
+mettere questi file dentro cartella lib poi ctrl+shift+p e fai add libraries e selezioni i 3 file 
