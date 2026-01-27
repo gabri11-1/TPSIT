@@ -1,4 +1,4 @@
-package esercitazione_n_4;
+ esercitazione_n_4;
 
 // Importa ObjectMapper di Jackson per convertire oggetti Java in JSON e viceversa
 import com.fasterxml.jackson.databind.ObjectMapper;
