@@ -1,7 +1,10 @@
 package com.example;
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
-    }
+
+    public static final int PORT = 12345;
+    public static final String HOST = "localhost";
+
+    public static final String CHARSET = "UTF-8";
+
 }
