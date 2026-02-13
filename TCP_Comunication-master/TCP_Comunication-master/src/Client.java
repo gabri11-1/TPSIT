@@ -2,7 +2,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
+//import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -11,7 +11,7 @@ public class Client {
     // Oggetto Socket per gestire la comunicazione di rete
     private Socket socket;
     private String nome;
-    private String colore;
+    //private String colore;
 
     // Costruttore base con solo il nome
     public Client(String nome){
@@ -21,7 +21,7 @@ public class Client {
     // Costruttore avanzato con nome e colore
     public Client(String nome, String colore){
         this.nome = nome;
-        this.colore = colore;
+        //this.colore = colore;
     }
 
     /**
@@ -44,22 +44,13 @@ public class Client {
     /**
      * Invia un messaggio predefinito al server
      */
-    public void scrivi(){
-        try {
-            // Ottiene lo stream di uscita dal socket per inviare dati
-            OutputStream outputstream = socket.getOutputStream();
-            // PrintWriter permette di scrivere testo in modo semplice (come System.out)
-            PrintWriter printer = new PrintWriter(outputstream);
-            
-            // Scrive il messaggio (importante il \n per indicare la fine della riga)
-            printer.print("Hello world\n");
-            // Svuota il buffer e forza l'invio fisico dei dati sulla rete
-            printer.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.err.println("Impossibile scrivere al server");
-        }
-    }
+   public void scriviMessaggio(String msg) {
+    try {
+        PrintWriter printer = new PrintWriter(socket.getOutputStream());
+        printer.println(msg); // println aggiunge già il \n fondamentale!
+        printer.flush();
+    } catch (IOException e) { e.printStackTrace(); }
+}
 
     /**
      * Legge una riga di testo inviata dal server

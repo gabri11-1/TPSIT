@@ -10,7 +10,7 @@ public class Server {
     private ServerSocket serverSocket;
     // clientSocket rappresenta la connessione specifica con un client accettato
     private Socket clientSocket;
-    private int porta;
+    private int porta = 12345;
 
     // Costruttore: apre il server sulla porta specificata
     public Server(int porta){
