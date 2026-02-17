@@ -12,6 +12,10 @@ public class MainServer {
             server.scrivi(); // Risponde "Ciao" (o quello che vuoi)
         }
         // Nota: in un server reale aggiungeresti una condizione di uscita
+
+        //prossimo step mettere server.attendi() 
+        // dentro un ciclo infinito per accettare più client
+        //  e poi gestire ogni client in un thread separato (multithreading)
     
     }
 }
