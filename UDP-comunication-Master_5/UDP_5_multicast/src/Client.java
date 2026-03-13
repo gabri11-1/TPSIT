@@ -1,13 +1,12 @@
 import java.net.*;
-import java.util.Scanner;
 
 public class Client {
 
-    private String host;
+    private String groupAddress;
     private int port;
 
-    public Client(String host, int port) {
-        this.host = host;
+    public Client(String groupAddress, int port) {
+        this.groupAddress = groupAddress;
         this.port = port;
     }
 
@@ -15,45 +14,29 @@ public class Client {
 
         try {
 
-            DatagramSocket socket = new DatagramSocket();
-            socket.setSoTimeout(5000);
+            MulticastSocket socket = new MulticastSocket(port);
+            InetAddress group = InetAddress.getByName(groupAddress);
 
-            InetAddress serverAddress = InetAddress.getByName(host);
+            socket.joinGroup(group);
 
-            Scanner scanner = new Scanner(System.in);
+            System.out.println("Client in ascolto sul gruppo multicast...");
 
-            System.out.print("Inserisci messaggio: ");
-            String message = scanner.nextLine();
+            byte[] buffer = new byte[1024];
 
-            byte[] sendData = message.getBytes();
+            while (true) {
 
-            DatagramPacket sendPacket =
-                    new DatagramPacket(sendData, sendData.length, serverAddress, port);
+                DatagramPacket packet =
+                        new DatagramPacket(buffer, buffer.length);
 
-            socket.send(sendPacket);
+                socket.receive(packet);
 
-            byte[] receiveData = new byte[1024];
+                String message =
+                        new String(packet.getData(), 0, packet.getLength());
 
-            DatagramPacket receivePacket =
-                    new DatagramPacket(receiveData, receiveData.length);
+                System.out.println("Messaggio ricevuto: " + message);
+            }
 
-            socket.receive(receivePacket);
-
-            String response =
-                    new String(receivePacket.getData(),0,receivePacket.getLength());
-
-            System.out.println("Risposta dal server: " + response);
-
-            socket.close();
-
-        }
-        catch(SocketTimeoutException e){
-            System.out.println("Il server non risponde.");
-        }
-        catch(UnknownHostException e){
-            System.out.println("Host non trovato.");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

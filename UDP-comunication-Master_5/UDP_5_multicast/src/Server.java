@@ -1,56 +1,43 @@
 import java.net.*;
+import java.util.Scanner;
 
 public class Server {
 
+    private String groupAddress;
     private int port;
 
-    public Server(int port){
+    public Server(String groupAddress, int port) {
+        this.groupAddress = groupAddress;
         this.port = port;
     }
 
-    public void start(){
+    public void start() {
 
-        try{
+        try {
 
-            DatagramSocket serverSocket = new DatagramSocket(port);
+            MulticastSocket socket = new MulticastSocket();
+            InetAddress group = InetAddress.getByName(groupAddress);
 
-            System.out.println("Server avviato sulla porta " + port);
+            Scanner scanner = new Scanner(System.in);
 
-            byte[] receiveData = new byte[1024];
+            System.out.println("Server multicast avviato...");
 
-            while(true){
+            while (true) {
 
-                DatagramPacket receivePacket =
-                        new DatagramPacket(receiveData, receiveData.length);
+                System.out.print("Inserisci messaggio: ");
+                String message = scanner.nextLine();
 
-                serverSocket.receive(receivePacket);
+                byte[] buffer = message.getBytes();
 
-                String message =
-                        new String(receivePacket.getData(),0,receivePacket.getLength());
+                DatagramPacket packet =
+                        new DatagramPacket(buffer, buffer.length, group, port);
 
-                System.out.println("Messaggio ricevuto: " + message);
-
-                String response = "Server ha ricevuto: " + message.toUpperCase();
-
-                byte[] sendData = response.getBytes();
-
-                InetAddress clientAddress = receivePacket.getAddress();
-                int clientPort = receivePacket.getPort();
-
-                DatagramPacket sendPacket =
-                        new DatagramPacket(sendData, sendData.length, clientAddress, clientPort);
-
-                serverSocket.send(sendPacket);
+                socket.send(packet);
 
             }
 
-        }
-        catch(BindException e){
-            System.out.println("Errore: server già avviato sulla porta.");
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }
